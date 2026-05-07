@@ -83,12 +83,14 @@ if (isset($_POST['update'])) {
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Tambah Data</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -122,16 +124,18 @@ body{
 
 .header{
     margin-bottom:30px;
+    text-align:center;
 }
 
 .header h1{
-    font-size:40px;
+    font-size:42px;
     font-weight:700;
     margin-bottom:10px;
 }
 
 .header p{
     color:#cbd5e1;
+    font-size:16px;
 }
 
 /* ========================= */
@@ -338,7 +342,7 @@ tbody tr:hover{
 }
 
 /* ========================= */
-/* GLOW */
+/* GLOW EFFECT */
 /* ========================= */
 
 .glow{
@@ -363,6 +367,7 @@ tbody tr:hover{
 }
 
 </style>
+
 </head>
 
 <body>
@@ -372,9 +377,15 @@ tbody tr:hover{
 
 <div class="container">
 
+    <!-- HEADER -->
     <div class="header">
-        <h1>Modern CRUD Users</h1>
-        <p>PHP Native + MySQL dengan tampilan modern dan aesthetic</p>
+
+        <h1>Tambah Data</h1>
+
+        <p>
+            Sistem CRUD sederhana menggunakan PHP Native dan MySQL
+        </p>
+
     </div>
 
     <div class="grid">
@@ -384,32 +395,44 @@ tbody tr:hover{
 
             <?php if($editData){ ?>
 
-                <div class="form-title">Edit User</div>
+                <div class="form-title">
+                    Edit Data User
+                </div>
 
                 <form method="POST">
 
-                    <input type="hidden" name="id" value="<?= $editData['id']; ?>">
+                    <input type="hidden"
+                           name="id"
+                           value="<?= $editData['id']; ?>">
 
                     <div class="input-group">
+
                         <label>Nama</label>
+
                         <input type="text"
                                name="nama"
                                value="<?= $editData['nama']; ?>"
                                required>
+
                     </div>
 
                     <div class="input-group">
+
                         <label>Password</label>
+
                         <input type="text"
                                name="sandi"
                                value="<?= $editData['sandi']; ?>"
                                required>
+
                     </div>
 
                     <button type="submit"
                             name="update"
                             class="btn btn-update">
+
                         Update Data
+
                     </button>
 
                     <a href="index.php" class="btn-cancel">
@@ -420,30 +443,40 @@ tbody tr:hover{
 
             <?php } else { ?>
 
-                <div class="form-title">Tambah User</div>
+                <div class="form-title">
+                    Tambah User
+                </div>
 
                 <form method="POST">
 
                     <div class="input-group">
+
                         <label>Nama</label>
+
                         <input type="text"
                                name="nama"
                                placeholder="Masukkan nama..."
                                required>
+
                     </div>
 
                     <div class="input-group">
+
                         <label>Password</label>
+
                         <input type="password"
                                name="sandi"
                                placeholder="Masukkan password..."
                                required>
+
                     </div>
 
                     <button type="submit"
                             name="tambah"
                             class="btn btn-primary">
+
                         Simpan Data
+
                     </button>
 
                 </form>
@@ -464,13 +497,17 @@ tbody tr:hover{
                 <table>
 
                     <thead>
+
                         <tr>
+
                             <th>ID</th>
                             <th>Nama</th>
                             <th>Password</th>
                             <th>Status</th>
                             <th>Aksi</th>
+
                         </tr>
+
                     </thead>
 
                     <tbody>
@@ -490,9 +527,11 @@ tbody tr:hover{
                         <td><?= $d['sandi']; ?></td>
 
                         <td>
+
                             <span class="badge">
                                 Active
                             </span>
+
                         </td>
 
                         <td>
@@ -501,13 +540,17 @@ tbody tr:hover{
 
                                 <a href="index.php?edit=<?= $d['id']; ?>"
                                    class="edit-btn">
-                                   Edit
+
+                                    Edit
+
                                 </a>
 
                                 <a href="index.php?hapus=<?= $d['id']; ?>"
                                    class="delete-btn"
                                    onclick="return confirm('Yakin ingin hapus data ini?')">
-                                   Hapus
+
+                                    Hapus
+
                                 </a>
 
                             </div>
